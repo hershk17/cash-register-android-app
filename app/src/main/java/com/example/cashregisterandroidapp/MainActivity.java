@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch(id) {
             case R.id.manager_btn:
-                Intent intent = new Intent(this,Manager.class);
-                startActivity(intent);
+                startActivity(new Intent(this,Manager.class));
                 break;
             case R.id.buy_btn:
                 this.productManager.addPurchase(this.product);
