@@ -32,10 +32,16 @@ public class ManagerActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(this, HistoryActivity.class));
                 break;
             case R.id.restock_btn:
-                startActivity(new Intent(this,Restock.class));
+                startActivity(new Intent(this, RestockActivity.class));
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

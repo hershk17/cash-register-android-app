@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView product_type, product_qty, product_total;
     private NumberPicker qty_picker;
 
+    ProductBaseAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,18 +37,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         product_type = findViewById(R.id.product_type);
         product_qty = findViewById(R.id.product_qty);
         product_total = findViewById(R.id.product_total);
-        Button manager_btn = findViewById(R.id.manager_btn);
-        Button buy_btn = findViewById(R.id.buy_btn);
-
-        manager_btn.setOnClickListener(this);
-        buy_btn.setOnClickListener(this);
+        findViewById(R.id.manager_btn).setOnClickListener(this);
+        findViewById(R.id.buy_btn).setOnClickListener(this);
 
         product = ((MyApp)getApplication()).mainProduct;
         productManager = ((MyApp)getApplication()).productManager;
         purchaseManager = ((MyApp)getApplication()).purchaseManager;
 
         ListView product_list = findViewById(R.id.product_list);
-        ProductBaseAdapter adapter = new ProductBaseAdapter(((MyApp)getApplication()).productManager.getProducts(), this);
+        adapter = new ProductBaseAdapter(((MyApp)getApplication()).productManager.getProducts(), this);
         product_list.setAdapter(adapter);
 
         qty_picker = findViewById(R.id.qty_picker);
@@ -72,6 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, ManagerActivity.class));
                 break;
             case R.id.buy_btn:
-                if(product == null) {
+                if(product.getId() == -1) {
                     Toast.makeText(getApplicationContext(), "Please select a product!", Toast.LENGTH_SHORT).show();
                 }
                 else if(qty < 1) {
@@ -93,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else {
                     purchaseManager.addPurchase(product, qty, total);
+                    productManager.updateQty(product.getId(), product.getQty() - qty);
+                    adapter.notifyDataSetChanged();
                     builder.setTitle("Success")
                             .setMessage("You purchased " + qty + " " + product.getName() + " for $" + total + ".")
                             .setCancelable(true)

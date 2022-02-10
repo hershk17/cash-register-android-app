@@ -10,8 +10,8 @@ public class Purchase {
 
     public Purchase() {
         this.product = null;
-        this.purchaseQty = 0;
-        this.purchasePrice = 0;
+        this.purchaseQty = -1;
+        this.purchasePrice = -1;
         this.dateOfPurchase = null;
     }
 

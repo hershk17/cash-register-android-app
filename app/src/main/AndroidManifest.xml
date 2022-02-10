@@ -12,13 +12,15 @@
         android:theme="@style/Theme.CashRegisterAndroidApp">
         <activity
             android:name=".HistoryDetailsActivity"
+            android:label="Purchase Details"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HistoryActivity" />
         </activity>
         <activity
-            android:name=".Restock"
+            android:name=".RestockActivity"
+            android:label="Restock Product"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -26,6 +28,7 @@
         </activity>
         <activity
             android:name=".HistoryActivity"
+            android:label="Purchase History"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -33,6 +36,7 @@
         </activity>
         <activity
             android:name=".ManagerActivity"
+            android:label="Manager"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -40,6 +44,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:label="Cash Register App"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

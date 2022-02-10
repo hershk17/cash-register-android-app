@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ProductManager {
-    private final ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<Product> products = new ArrayList<>();
 
     public ProductManager() {
         products.add(new Product(0, "Pants", 20, 50.7));
@@ -23,10 +23,6 @@ public class ProductManager {
     }
 
     public void updateQty(int id, int newQty) {
-        for (Product product : this.products) {
-            if (product.getId() == id) {
-                product.setQty(newQty);
-            }
-        }
+        products.get(id).setQty(newQty);
     }
 }

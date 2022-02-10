@@ -18,4 +18,10 @@ public class HistoryDetailsActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.purchased_price)).setText(getString(R.string.purchase_label_total, String.valueOf(((MyApp)getApplication()).mainPurchase.getPurchasePrice())));
         ((TextView)findViewById(R.id.purchased_date)).setText(getString(R.string.purchase_label_date, String.valueOf(((MyApp)getApplication()).mainPurchase.getDateOfPurchase())));
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
 }

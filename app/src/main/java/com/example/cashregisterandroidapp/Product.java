@@ -9,7 +9,12 @@ public class Product {
     private int qty;
     private double price;
 
-    public Product() {}
+    public Product() {
+        this.id = -1;
+        this.name = null;
+        this.qty = -1;
+        this.price = -1;
+    }
 
     public Product(int id, String name, int qty, double price) {
         this.id = id;
