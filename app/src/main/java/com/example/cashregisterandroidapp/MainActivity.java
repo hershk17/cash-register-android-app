@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         product_type = findViewById(R.id.product_type);
         product_qty = findViewById(R.id.product_qty);
         product_total = findViewById(R.id.product_total);
-        qty_picker = findViewById(R.id.qty_picker);
         manager_btn = findViewById(R.id.manager_btn);
         buy_btn = findViewById(R.id.buy_btn);
 
@@ -53,14 +53,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ProductBaseAdapter adapter = new ProductBaseAdapter(((MyApp)getApplication()).manager.getProducts(), this);
         product_list.setAdapter(adapter);
 
+        qty_picker = findViewById(R.id.qty_picker);
+        qty_picker.setMinValue(0);
 
+        qty_picker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int oldVal, int newVal) {
+                product_qty.setText(String.valueOf(newVal));
+                product_total.setText(String.valueOf(product.getPrice() * newVal));
+            }
+        });
 
-//        product_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-//
-//            }
-//        });
+        product_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+                product = (Product)adapter.getItem(pos);
+                product_type.setText(product.getName());
+                qty_picker.setMaxValue(product.getQty());
+                product_qty.setText(String.valueOf(qty_picker.getValue()));
+                product_total.setText(String.valueOf(qty_picker.getValue() * product.getPrice()));
+            }
+        });
     }
 
     @Override
