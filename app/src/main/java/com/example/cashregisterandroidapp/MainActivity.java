@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch(id) {
             case R.id.manager_btn:
-                startActivity(new Intent(this,Manager.class));
+                startActivity(new Intent(this, ManagerActivity.class));
                 break;
             case R.id.buy_btn:
                 if(product == null) {

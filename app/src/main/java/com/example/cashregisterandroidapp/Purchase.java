@@ -8,6 +8,13 @@ public class Purchase {
     private final double purchasePrice;
     private final Date dateOfPurchase;
 
+    public Purchase() {
+        this.product = null;
+        this.purchaseQty = 0;
+        this.purchasePrice = 0;
+        this.dateOfPurchase = null;
+    }
+
     public Purchase(Product product, int purchaseQty, double purchasePrice, Date dateOfPurchase) {
         this.product = product;
         this.purchaseQty = purchaseQty;

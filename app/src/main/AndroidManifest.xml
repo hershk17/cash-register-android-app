@@ -11,28 +11,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CashRegisterAndroidApp">
         <activity
-            android:name=".HistoryDetails"
+            android:name=".HistoryDetailsActivity"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".History" />
+                android:value=".HistoryActivity" />
         </activity>
         <activity
             android:name=".Restock"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Manager" />
+                android:value=".ManagerActivity" />
         </activity>
         <activity
-            android:name=".History"
+            android:name=".HistoryActivity"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Manager" />
+                android:value=".ManagerActivity" />
         </activity>
         <activity
-            android:name=".Manager"
+            android:name=".ManagerActivity"
             android:exported="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

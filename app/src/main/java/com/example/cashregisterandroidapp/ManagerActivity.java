@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Manager extends AppCompatActivity implements View.OnClickListener {
+public class ManagerActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button history_btn, restock_btn;
 
@@ -29,7 +29,7 @@ public class Manager extends AppCompatActivity implements View.OnClickListener {
 
         switch (id) {
             case R.id.history_btn:
-                startActivity(new Intent(this,History.class));
+                startActivity(new Intent(this, HistoryActivity.class));
                 break;
             case R.id.restock_btn:
                 startActivity(new Intent(this,Restock.class));

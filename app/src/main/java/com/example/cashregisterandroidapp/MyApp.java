@@ -6,4 +6,5 @@ public class MyApp extends Application {
     ProductManager productManager = new ProductManager();
     PurchaseManager purchaseManager = new PurchaseManager();
     Product mainProduct = new Product();
+    Purchase mainPurchase = new Purchase();
 }
