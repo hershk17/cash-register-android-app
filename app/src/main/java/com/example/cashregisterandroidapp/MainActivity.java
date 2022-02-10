@@ -15,12 +15,14 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ProductManager productManager;
     private Product product;
 
-    private AlertDialog.Builder builder;
+//    private AlertDialog.Builder builder;
 
     private TextView product_type, product_qty, product_total;
     private Button manager_btn, buy_btn;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        builder = new AlertDialog.Builder(this);
+//        builder = new AlertDialog.Builder(this);
 
         product_type = findViewById(R.id.product_type);
         product_qty = findViewById(R.id.product_qty);
@@ -48,16 +50,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         productManager = ((MyApp)getApplication()).manager;
 
         product_list = findViewById(R.id.product_list);
-        // this will be created again
-        ArrayAdapter<Product> adapter = new ArrayAdapter<>(this, R.layout.product_row_layout, R.id.product_row, productManager.getProducts());
+        ProductBaseAdapter adapter = new ProductBaseAdapter(((MyApp)getApplication()).manager.getProducts(), this);
         product_list.setAdapter(adapter);
 
-        product_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                
-            }
-        });
+
+
+//        product_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+//
+//            }
+//        });
     }
 
     @Override
