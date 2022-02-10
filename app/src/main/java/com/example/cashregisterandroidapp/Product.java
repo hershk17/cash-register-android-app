@@ -22,6 +22,12 @@ public class Product implements Parcelable {
         return this.id;
     }
 
+    public String getName() { return this.name; }
+
+    public int getQty() { return this.qty; }
+
+    public double getPrice() { return this.price; }
+
     public void setQty(int newQty) {
         this.qty = newQty;
     }

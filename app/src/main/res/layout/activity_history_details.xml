@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".HistoryDetails">
 
+    <TextView
+        android:id="@+id/purchased_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/purchased_name"
+        android:textSize="24sp"
+        android:text="ID"
+        />
+
+    <TextView
+        android:id="@+id/purchased_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/purchased_id"
+        app:layout_constraintBottom_toTopOf="@+id/purchased_qty"
+        android:textSize="24sp"
+        android:text="Name"
+        />
+
+    <TextView
+        android:id="@+id/purchased_qty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/purchased_name"
+        app:layout_constraintBottom_toTopOf="@+id/purchased_price"
+        android:textSize="24sp"
+        android:text="Qty"
+        />
+
+    <TextView
+        android:id="@+id/purchased_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/purchased_qty"
+        app:layout_constraintBottom_toTopOf="@+id/purchased_date"
+        android:textSize="24sp"
+        android:text="Price"
+        />
+
+    <TextView
+        android:id="@+id/purchased_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/purchased_price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:text="Date"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
