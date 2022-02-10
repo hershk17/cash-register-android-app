@@ -1,10 +1,10 @@
 package com.example.cashregisterandroidapp;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ProductManager {
-    private ArrayList<Product> products = new ArrayList<>();
-    private ArrayList<Product> purchased = new ArrayList<>();
+    private final ArrayList<Product> products = new ArrayList<>();
 
     public ProductManager() {
         products.add(new Product(0, "Pants", 20, 50.7));
@@ -20,10 +20,6 @@ public class ProductManager {
 
     public void addProduct(Product product){
         products.add(product);
-    }
-
-    public void addPurchase(Product product){
-        purchased.add(product);
     }
 
     public void updateQty(int id, int newQty) {

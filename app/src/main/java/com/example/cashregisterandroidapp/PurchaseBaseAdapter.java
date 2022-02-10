@@ -9,24 +9,23 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ProductBaseAdapter extends BaseAdapter {
-
-    private final ArrayList<Product> listOfProducts;
+public class PurchaseBaseAdapter extends BaseAdapter {
+    private final ArrayList<Purchase> listOfPurchases;
     private final Context context;
 
-    public ProductBaseAdapter(ArrayList<Product> listOfProducts, Context context) {
-        this.listOfProducts = listOfProducts;
+    public PurchaseBaseAdapter(ArrayList<Purchase> listOfPurchases, Context context) {
+        this.listOfPurchases = listOfPurchases;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return listOfProducts.size();
+        return listOfPurchases.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return listOfProducts.get(i);
+        return listOfPurchases.get(i);
     }
 
     @Override
@@ -38,9 +37,9 @@ public class ProductBaseAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = LayoutInflater.from(context).inflate(R.layout.product_row_layout, null);
 
-        ((TextView)view.findViewById(R.id.list_product_name)).setText(listOfProducts.get(i).getName());
-        ((TextView)view.findViewById(R.id.list_product_price)).setText(String.valueOf(listOfProducts.get(i).getPrice()));
-        ((TextView)view.findViewById(R.id.list_product_qty)).setText(String.valueOf(listOfProducts.get(i).getQty()));
+        ((TextView)view.findViewById(R.id.list_product_name)).setText(listOfPurchases.get(i).getProduct().getName());
+        ((TextView)view.findViewById(R.id.list_product_price)).setText(String.valueOf(listOfPurchases.get(i).getPurchaseQty()));
+        ((TextView)view.findViewById(R.id.list_product_qty)).setText(String.valueOf(listOfPurchases.get(i).getPurchasePrice()));
 
         return view;
     }
