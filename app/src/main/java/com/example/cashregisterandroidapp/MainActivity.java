@@ -107,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             .show();
                     ((MyApp)getApplication()).mainProduct = new Product();
                     product = ((MyApp)getApplication()).mainProduct;
+                    qty_picker.setMaxValue(0);
+                    product_type.setText(R.string.product_type);
+                    product_qty.setText(R.string.product_qty);
+                    product_total.setText(R.string.product_total);
                 }
                 break;
             default:
