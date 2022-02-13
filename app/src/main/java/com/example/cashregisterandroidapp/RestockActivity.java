@@ -3,11 +3,13 @@ package com.example.cashregisterandroidapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class RestockActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,6 +30,7 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
                 currProduct = (Product)adapter.getItem(pos);
+                ((TextView)findViewById(R.id.selected_product)).setText(getString(R.string.selected_product, currProduct.getName()));
             }
         });
 
@@ -45,12 +48,15 @@ public class RestockActivity extends AppCompatActivity implements View.OnClickLi
                 if(currProduct == null) {
                     Toast.makeText(getApplicationContext(), "Please select a product!", Toast.LENGTH_SHORT).show();
                 }
-                else if(input == null) {
+                else if(TextUtils.isEmpty(input)) {
                     Toast.makeText(getApplicationContext(), "Please enter a quantity to restock!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     ((MyApp)getApplication()).productManager.updateQty(currProduct.getId(), Integer.parseInt(input) + currProduct.getQty());
                     adapter.notifyDataSetChanged();
+                    ((EditText)findViewById(R.id.qty_input)).setText("");
+                    currProduct = null;
+                    ((TextView)findViewById(R.id.selected_product)).setText(R.string.not_selected_product);
                     Toast.makeText(getApplicationContext(), "Restocked!", Toast.LENGTH_SHORT).show();
                 }
                 break;

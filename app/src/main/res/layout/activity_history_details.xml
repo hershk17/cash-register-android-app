@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/purchased_qty"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_large"
         />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/purchased_name"
         app:layout_constraintBottom_toTopOf="@+id/purchased_price"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_large"
         />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/purchased_qty"
         app:layout_constraintBottom_toTopOf="@+id/purchased_date"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_large"
         />
 
     <TextView
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/purchased_price"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_large"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

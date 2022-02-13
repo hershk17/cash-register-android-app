@@ -15,4 +15,6 @@
     <string name="cancel_button">Cancel</string>
     <string name="confirm_button">OK</string>
     <string name="qty_input">Enter quantity to restock</string>
+    <string name="selected_product">Restocking: %1$s</string>
+    <string name="not_selected_product">Please select a product</string>
 </resources>

@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp"
+    android:padding="@dimen/list_padding"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/list_product_info"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/list_product_qty"
@@ -20,9 +20,8 @@
             android:id="@+id/list_product_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
             android:textColor="@color/purple_200"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_medium"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/list_product_price"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,8 +32,7 @@
             android:id="@+id/list_product_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Price"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_small"
             app:layout_constraintTop_toBottomOf="@+id/list_product_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +43,9 @@
 
     <TextView
         android:id="@+id/list_product_qty"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fill"
         android:layout_height="wrap_content"
-        android:text="Qty"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_medium"
         android:gravity="end"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
