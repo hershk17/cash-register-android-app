@@ -51,18 +51,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         qty_picker = findViewById(R.id.qty_picker);
         qty_picker.setMinValue(0);
 
+        if(product.getId() != -1) {
+            product_type.setText(product.getName());
+            qty_picker.setMaxValue(product.getQty());
+            product_qty.setText(String.valueOf(((MyApp)getApplication()).mainSelectedQty));
+            product_total.setText(String.valueOf(((MyApp)getApplication()).mainSelectedQty * product.getPrice()));
+        }
+
         qty_picker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int oldVal, int newVal) {
                 product_qty.setText(String.valueOf(newVal));
                 product_total.setText(String.valueOf(product.getPrice() * newVal));
+                ((MyApp)getApplication()).mainSelectedQty = newVal;
             }
         });
 
         product_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                product = (Product)adapter.getItem(pos);
+                ((MyApp)getApplication()).mainProduct = (Product)adapter.getItem(pos);
+                product = ((MyApp)getApplication()).mainProduct;
                 product_type.setText(product.getName());
                 qty_picker.setMaxValue(product.getQty());
                 product_qty.setText(String.valueOf(qty_picker.getValue()));
