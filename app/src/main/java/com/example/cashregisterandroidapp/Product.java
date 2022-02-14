@@ -4,10 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Product {
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
     private int qty;
-    private double price;
+    private final double price;
 
     public Product() {
         this.id = -1;
