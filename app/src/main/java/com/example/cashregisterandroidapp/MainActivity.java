@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(product.getId() != -1) {
             product_type.setText(product.getName());
             qty_picker.setMaxValue(product.getQty());
+            qty_picker.setValue(((MyApp)getApplication()).mainSelectedQty);
             product_qty.setText(String.valueOf(((MyApp)getApplication()).mainSelectedQty));
             product_total.setText(String.valueOf(((MyApp)getApplication()).mainSelectedQty * product.getPrice()));
         }
